@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 /*
  For C# games, we need to put our main class inside of the 
  `PixelVision8.Player` namespace.
@@ -13,6 +15,7 @@ namespace PixelVision8.Player
 	{
 
 		PlayerCharacter player;
+		List<WordBullet> bullets;
 		LoveMeter loveMeter;
 		HPMeter hpMeter;
 
@@ -27,7 +30,8 @@ namespace PixelVision8.Player
 			PlayArea.Setup(this);
 			loveMeter = new LoveMeter();
 			hpMeter = new HPMeter();
-
+			bullets = new List<WordBullet>();
+			bullets.Add(new WordBullet(this, new Vector2D(32, 32), new Vector2D(1, 1)));
 		}
 		
 		/*
@@ -55,6 +59,10 @@ namespace PixelVision8.Player
 			PlayArea.Draw(this);
 			loveMeter.Draw(this);
 			hpMeter.Draw(this);
+
+			foreach (WordBullet bullet in bullets) {
+				bullet.Draw(this);
+			}
 		}
 	}
 }

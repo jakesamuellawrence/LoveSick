@@ -1,16 +1,22 @@
+using PixelVision8.Player;
 using System;
-public class WordBullets {
+public class WordBullet {
 
-    public WordBullets(gameChip gameChip) {
+    private Vector2D position;
+    private Vector2D velocity;
+    private int WIDTH = 8;
+    private int HEIGHT = 8;
+    private int SPRITE_INDEX = 1;
 
+    public WordBullet(CustomGameChip gameChip, Vector2D position, Vector2D velocity) {
+        this.position = position;
+        this.velocity = velocity;
     }
 
-    public void Update(GameChip gameChip) {
-
+    public void Update(CustomGameChip gameChip) {
     }
 
-    public void Draw(GameChip gameChip) {
-
-
+    public void Draw(CustomGameChip gameChip) {
+        gameChip.DrawSprite(SPRITE_INDEX, (int)position.x - WIDTH/2, (int)position.y - HEIGHT/2, false, false, DrawMode.Sprite);
     }
 }
