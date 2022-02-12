@@ -16,7 +16,7 @@
   of fonts into the default.font.png. Use uppercase for larger characters and
   lowercase for a smaller one.
 ]]--
-local message = "This is lovesick now babeyyyy"
+local message = "This is lovesick in lua now babeyyyy"
 
 --[[
   The Init() method is part of the game's lifecycle and called a game starts.

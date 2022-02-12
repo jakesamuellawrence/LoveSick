@@ -1,10 +1,20 @@
 {
-  "name": "PV8System",
-  "description": "A PV8 Game Template.",
-  "version": "v0.9.4",
-  "ext": ".pv8",
-  "gpuChip": "PV8",
-  "cartChip": "PV8",
-  "soundChip": "PV8",
-
+    "name":"PV8System",
+    "description":"A PV8 Game Template.",
+    "version":"v1.0.18",
+    "ext":".pv8",
+    "gpuChip":"PV8",
+    "cartChip":"PV8",
+    "soundChip":"PV8",
+    "ignoreProcessing":"False",
+    "ignoreOptimizeWarning":"False",
+    "paletteMode":"false",
+    "buildWin":"false",
+    "buildExtras":"false",
+    "buildFullscreen":"false",
+    "clear":"false",
+    "buildMac":"false",
+    "buildLinux":"false",
+    "runnerType":"csharp",
+    
 }
