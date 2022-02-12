@@ -11,7 +11,7 @@ public class SpreadSpawner : BulletSpawner {
     public override void Fire(CustomGameChip gameChip){
         for(int i = 0; i < numBullets; i++) {
             Vector2D target = PlayArea.GenerateRandomPoint();
-            fireAt(gameChip, target);
+            FireAt(gameChip, target);
         }
     }
 }

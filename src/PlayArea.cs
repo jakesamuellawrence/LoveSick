@@ -9,7 +9,7 @@ public class PlayArea {
 
     public static void Setup(CustomGameChip gameChip) {
         Point display = gameChip.Display();
-        centre = new Vector2D(display.X/2, display.Y/2);
+        centre = new Vector2D(display.X/2, display.Y/2+20);
     }
 
     public static void Draw(CustomGameChip gameChip) {
@@ -40,6 +40,26 @@ public class PlayArea {
         int xPos = rand.Next(WIDTH);
         int yPos = rand.Next(HEIGHT);
         return new Vector2D(centre.x - WIDTH/2 + xPos, centre.y - HEIGHT/2 + yPos);
+    }
+
+    public static Vector2D GenerateRandomSpawnerPoint() {
+        Random rand= new Random();
+        int xOffset = rand.Next(10, 25);
+        int yOffset = rand.Next(10, 25);
+
+        Vector2D point = new Vector2D(0, 0);
+        if (rand.Next(0, 2) == 0) {
+            point.x = centre.x - WIDTH/2 - xOffset;
+        } else {
+            point.x = centre.x + WIDTH/2 + xOffset;
+        }
+
+        if (rand.Next(0, 2) == 0) {
+            point.y = centre.y - HEIGHT/2 - yOffset;
+        } else {
+            point.y = centre.y + HEIGHT/2 + yOffset;
+        }
+        return point;
     }
 
 }

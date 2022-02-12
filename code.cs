@@ -18,11 +18,15 @@ namespace PixelVision8.Player
 		Transition transition;
 		public int currentDate = 1;
 		public int dayPhase = 0;
-		BulletSpawner spawner1;
+		List<BulletSpawner> spawners;
+		List<BulletSpawner> spawnersToRemove;
 		List<WordBullet> bullets;
 		List<WordBullet> bulletsToRemove;
 		LoveMeter loveMeter;
 		HPMeter hpMeter;
+
+		int PLAY_MAX_TIME = 60000;
+		int currTime = 0;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -38,8 +42,10 @@ namespace PixelVision8.Player
 			hpMeter = new HPMeter();
 			bullets = new List<WordBullet>();
 			bulletsToRemove = new List<WordBullet>();
-			spawner1 = new SpreadSpawner(new Vector2D(120, 50), "Cute", 5);
-			spawner1.Fire(this);
+			spawners = new List<BulletSpawner>();
+			spawnersToRemove = new List<BulletSpawner>();
+			BulletSpawner spawner1 = new SpreadSpawner(new Vector2D(120, 50), "Cute", 5);
+			AddBulletSpawner(spawner1);
 			// bullets.Add(new WordBullet(new Vector2D(120, 120), new Vector2D(0.15f, 0.15f)));
 		}
 		
@@ -52,12 +58,22 @@ namespace PixelVision8.Player
 		public override void Update(int timeDelta)
 		{
 			if (dayPhase == 1) {
+				GameManager.Update(this, timeDelta);
+
 				player.Update(this, timeDelta);
+
 				foreach (WordBullet bullet in bullets) {
 					bullet.Update(this, timeDelta);
 				}
 				foreach (WordBullet bullet in bulletsToRemove) {
 					bullets.Remove(bullet);
+				}
+
+				foreach (BulletSpawner spawner in spawners) {
+					spawner.Update(this, timeDelta);
+				}
+				foreach (BulletSpawner spawner in spawnersToRemove) {
+					spawners.Remove(spawner);
 				}
 			}
 			else {
@@ -76,9 +92,11 @@ namespace PixelVision8.Player
 			if (dayPhase == 1) {
 				PlayArea.Draw(this);
 				player.Draw(this);
-				spawner1.Draw(this);
 				foreach (WordBullet bullet in bullets) {
 					bullet.Draw(this);
+				}
+				foreach (BulletSpawner spawner in spawners) {
+					spawner.Draw(this);
 				}
 				loveMeter.Draw(this);
 				hpMeter.Draw(this);
@@ -94,6 +112,14 @@ namespace PixelVision8.Player
 
 		public void RemoveBullet(WordBullet bullet) {
 			bulletsToRemove.Add(bullet);
+		}
+
+		public void AddBulletSpawner(BulletSpawner spawner) {
+			spawners.Add(spawner);
+		}
+
+		public void RemoveBulletSpawner(BulletSpawner spawner) {
+			spawnersToRemove.Add(spawner);
 		}
 
 		public void PlayerHitBullet(WordBullet bullet) {
