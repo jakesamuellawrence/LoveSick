@@ -15,7 +15,7 @@ public class PlayerCharacter {
 
     public void Update(CustomGameChip gameChip, int timeDelta) {
         Vector2D inputVec = getNormalizedMovementVector(gameChip);
-        position = position.add(inputVec.times(movespeed * timeDelta));
+        position = position + inputVec * movespeed * timeDelta;
         PlayArea.ForceInBounds(position, 8, 8);
     }
 

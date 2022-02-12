@@ -15,6 +15,9 @@ namespace PixelVision8.Player
 	{
 
 		PlayerCharacter player;
+		Transition transition;
+		public int currentDate = 1;
+		public int dayPhase = 0;
 		List<WordBullet> bullets;
 		LoveMeter loveMeter;
 		HPMeter hpMeter;
@@ -27,6 +30,7 @@ namespace PixelVision8.Player
 		public override void Init()
 		{
 			player = new PlayerCharacter(this);
+			transition = new Transition(this);
 			PlayArea.Setup(this);
 			loveMeter = new LoveMeter();
 			hpMeter = new HPMeter();
@@ -42,10 +46,14 @@ namespace PixelVision8.Player
 		*/
 		public override void Update(int timeDelta)
 		{
-
-			player.Update(this, timeDelta);
-			foreach (WordBullet bullet in bullets) {
-				bullet.Update(this);
+			if (dayPhase == 1) {
+				player.Update(this, timeDelta);
+				foreach (WordBullet bullet in bullets) {
+					bullet.Update(this);
+				}
+			}
+			else {
+				transition.Update(this, timeDelta);
 			}
 		}
 
@@ -57,13 +65,17 @@ namespace PixelVision8.Player
 		public override void Draw()
 		{
 			Clear();
-			player.Draw(this);
-			PlayArea.Draw(this);
-			loveMeter.Draw(this);
-			hpMeter.Draw(this);
-
-			foreach (WordBullet bullet in bullets) {
-				bullet.Draw(this);
+			if (dayPhase == 1) {
+				PlayArea.Draw(this);
+				player.Draw(this);
+				foreach (WordBullet bullet in bullets) {
+					bullet.Draw(this);
+				}
+				loveMeter.Draw(this);
+				hpMeter.Draw(this);
+			}
+			else {
+				transition.Draw(this);
 			}
 		}
 	}

@@ -10,6 +10,9 @@ public class Vector2D {
         this.y = y;
     }
 
+    public static Vector2D operator +(Vector2D a, Vector2D b) => a.add(b);
+    public static Vector2D operator *(Vector2D a, float scalar) => a.times(scalar);
+
     public Vector2D add(Vector2D other) {
         return new Vector2D(this.x + other.x, this.y + other.y);
     }
