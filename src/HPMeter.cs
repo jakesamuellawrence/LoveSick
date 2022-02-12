@@ -20,10 +20,10 @@ public class HPMeter {
     }
 
     public void Draw(CustomGameChip gameChip) {
-        gameChip.DrawText("HP:", textPositionX, positionY, DrawMode.SpriteBelow, "large", 15, 0);
+        gameChip.DrawText("HP:", textPositionX, positionY, DrawMode.UI, "large", 15, 0);
         gameChip.DrawRect(positionX-1, positionY-1, width+2, height+2, frameColorIndex, DrawMode.SpriteBelow);
-        gameChip.DrawRect(positionX, positionY, width, height, 0, DrawMode.SpriteBelow);
-        gameChip.DrawRect(positionX, positionY, hpValue, height, fillColorIndex, DrawMode.SpriteBelow);
+        gameChip.DrawRect(positionX, positionY, width, height, 0, DrawMode.Sprite);
+        gameChip.DrawRect(positionX, positionY, hpValue, height, fillColorIndex, DrawMode.SpriteAbove);
     }
 
 }
