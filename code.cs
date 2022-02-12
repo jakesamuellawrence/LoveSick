@@ -13,6 +13,9 @@ namespace PixelVision8.Player
 	{
 
 		PlayerCharacter player;
+		Transition transition;
+		public int currentDate = 1;
+		public int dayPhase = 0;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -22,6 +25,7 @@ namespace PixelVision8.Player
 		public override void Init()
 		{
 			player = new PlayerCharacter(this);
+			transition = new Transition(this);
 		}
 		
 		/*
@@ -32,9 +36,12 @@ namespace PixelVision8.Player
 		*/
 		public override void Update(int timeDelta)
 		{
-
-			player.Update(this, timeDelta);
-
+			if (dayPhase == 1) {
+				player.Update(this, timeDelta);
+			}
+			else {
+				transition.Update(this, timeDelta);
+			}
 		}
 
 		/* 
@@ -44,8 +51,12 @@ namespace PixelVision8.Player
 		*/
 		public override void Draw()
 		{
-
-			player.Draw(this);
+			if (dayPhase == 1) {
+				player.Draw(this);
+			}
+			else {
+				transition.Draw(this);
+			}
 			RedrawDisplay();
 
 		}
