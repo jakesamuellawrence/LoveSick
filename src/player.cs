@@ -6,7 +6,7 @@ public class PlayerCharacter {
     private int SPRITE_INDEX = 0;
 
     private Vector2D position;
-    private float movespeed = 0.1f; // speed in pixels / milisecond (probably?)
+    private float movespeed = 0.15f; // speed in pixels / milisecond (probably?)
 
     public PlayerCharacter(GameChip gameChip) {
         Point display = gameChip.Display();
@@ -16,6 +16,7 @@ public class PlayerCharacter {
     public void Update(GameChip gameChip, int timeDelta) {
         Vector2D inputVec = getNormalizedMovementVector(gameChip);
         position = position.add(inputVec.times(movespeed * timeDelta));
+        PlayArea.ForceInBounds(position, 8, 8);
     }
 
     private Vector2D getNormalizedMovementVector(GameChip gameChip) {

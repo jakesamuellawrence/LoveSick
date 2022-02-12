@@ -22,6 +22,7 @@ namespace PixelVision8.Player
 		public override void Init()
 		{
 			player = new PlayerCharacter(this);
+			PlayArea.Setup(this);
 		}
 		
 		/*
@@ -44,9 +45,9 @@ namespace PixelVision8.Player
 		*/
 		public override void Draw()
 		{
-
+			Clear();
 			player.Draw(this);
-			RedrawDisplay();
+			PlayArea.Draw(this);
 
 		}
 	}
