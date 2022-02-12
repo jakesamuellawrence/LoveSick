@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 /*
  For C# games, we need to put our main class inside of the 
  `PixelVision8.Player` namespace.
@@ -16,6 +18,9 @@ namespace PixelVision8.Player
 		Transition transition;
 		public int currentDate = 1;
 		public int dayPhase = 0;
+		List<WordBullet> bullets;
+		LoveMeter loveMeter;
+		HPMeter hpMeter;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -26,6 +31,11 @@ namespace PixelVision8.Player
 		{
 			player = new PlayerCharacter(this);
 			transition = new Transition(this);
+			PlayArea.Setup(this);
+			loveMeter = new LoveMeter();
+			hpMeter = new HPMeter();
+			bullets = new List<WordBullet>();
+			bullets.Add(new WordBullet(this, new Vector2D(32, 32), new Vector2D(1, 1)));
 		}
 		
 		/*
@@ -51,14 +61,19 @@ namespace PixelVision8.Player
 		*/
 		public override void Draw()
 		{
+			Clear();
 			if (dayPhase == 1) {
 				player.Draw(this);
+				PlayArea.Draw(this);
+				loveMeter.Draw(this);
+				hpMeter.Draw(this);
+				foreach (WordBullet bullet in bullets) {
+					bullet.Draw(this);
+				}
 			}
 			else {
 				transition.Draw(this);
 			}
-			RedrawDisplay();
-
 		}
 	}
 }
