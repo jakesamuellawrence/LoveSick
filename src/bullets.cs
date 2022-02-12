@@ -1,5 +1,5 @@
-pusing System;
-ublic class WordBullets {
+using System;
+public class WordBullets {
 
     public WordBullets(gameChip gameChip) {
 
@@ -11,6 +11,6 @@ ublic class WordBullets {
 
     public void Draw(GameChip gameChip) {
 
-        
+
     }
 }
