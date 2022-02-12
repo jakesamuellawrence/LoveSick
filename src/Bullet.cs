@@ -13,6 +13,19 @@ public class WordBullet {
         this.velocity = velocity;
     }
 
+    public bool isOffscreen(CustomGameChip gameChip) {
+        int screenLeftEdge = 0;
+        int screenRightEdge = gameChip.Display().X;
+        int screenTopEdge = 0;
+        int screenBottomEdge = gameChip.Display().Y; 
+        bool offScreen = false;
+
+        if (position.x > screenRightEdge || position.x < screenLeftEdge || position.y < screenTopEdge || position.y > screenBottomEdge)  {
+            offScreen = true;
+        }
+        return offScreen;
+    }
+
     public void Update(CustomGameChip gameChip, int timeDelta) {
         this.position = position + velocity * timeDelta;
         PlayerCharacter p = gameChip.player;

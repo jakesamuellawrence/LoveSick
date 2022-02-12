@@ -64,6 +64,9 @@ namespace PixelVision8.Player
 
 				foreach (WordBullet bullet in bullets) {
 					bullet.Update(this, timeDelta);
+					if (bullet.isOffscreen(this)) {
+						RemoveBullet(bullet);
+					}
 				}
 				foreach (WordBullet bullet in bulletsToRemove) {
 					bullets.Remove(bullet);
