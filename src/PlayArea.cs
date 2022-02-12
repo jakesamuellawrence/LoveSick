@@ -22,16 +22,16 @@ public class PlayArea {
         int topEdge = (int)centre.y - HEIGHT/2;
         int bottomEdge = (int)centre.y + HEIGHT/2;
         
-        if ((position.x) <= leftEdge) {
-            position.x = leftEdge;
-        } else if ((position.x + width) >= rightEdge) {
-            position.x = rightEdge - width;
+        if ((position.x - width/2) <= leftEdge) {
+            position.x = leftEdge + width/2;
+        } else if ((position.x + width/2) >= rightEdge) {
+            position.x = rightEdge - width/2;
         }
 
-        if ((position.y) <= topEdge) {
-            position.y = topEdge;
-        } else if ((position.y + height) >= bottomEdge) {
-            position.y = bottomEdge - height;
+        if ((position.y - height/2) <= topEdge) {
+            position.y = topEdge + height/2;
+        } else if ((position.y + height/2) >= bottomEdge) {
+            position.y = bottomEdge - height/2;
         }
     }
 

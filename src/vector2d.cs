@@ -12,9 +12,14 @@ public class Vector2D {
 
     public static Vector2D operator +(Vector2D a, Vector2D b) => a.add(b);
     public static Vector2D operator *(Vector2D a, float scalar) => a.times(scalar);
+    public static Vector2D operator -(Vector2D a, Vector2D b) => a.minus(b);
 
     public Vector2D add(Vector2D other) {
         return new Vector2D(this.x + other.x, this.y + other.y);
+    }
+
+    public Vector2D minus(Vector2D other) {
+        return new Vector2D(this.x - other.x, this.y - other.y);
     }
 
     public Vector2D times(float scalar) {

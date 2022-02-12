@@ -14,11 +14,13 @@ namespace PixelVision8.Player
 	public class CustomGameChip : GameChip
 	{
 
-		PlayerCharacter player;
+		public PlayerCharacter player;
 		Transition transition;
 		public int currentDate = 1;
 		public int dayPhase = 0;
+		BulletSpawner spawner1;
 		List<WordBullet> bullets;
+		List<WordBullet> bulletsToRemove;
 		LoveMeter loveMeter;
 		HPMeter hpMeter;
 
@@ -35,7 +37,10 @@ namespace PixelVision8.Player
 			loveMeter = new LoveMeter();
 			hpMeter = new HPMeter();
 			bullets = new List<WordBullet>();
-			bullets.Add(new WordBullet(this, new Vector2D(120, 120), new Vector2D(1, 1)));
+			bulletsToRemove = new List<WordBullet>();
+			spawner1 = new BulletSpawner(new Vector2D(120, 50), "Cute");
+			spawner1.fireAt(this, player.getPosition());
+			// bullets.Add(new WordBullet(new Vector2D(120, 120), new Vector2D(0.15f, 0.15f)));
 		}
 		
 		/*
@@ -49,7 +54,10 @@ namespace PixelVision8.Player
 			if (dayPhase == 1) {
 				player.Update(this, timeDelta);
 				foreach (WordBullet bullet in bullets) {
-					bullet.Update(this);
+					bullet.Update(this, timeDelta);
+				}
+				foreach (WordBullet bullet in bulletsToRemove) {
+					bullets.Remove(bullet);
 				}
 			}
 			else {
@@ -68,6 +76,7 @@ namespace PixelVision8.Player
 			if (dayPhase == 1) {
 				PlayArea.Draw(this);
 				player.Draw(this);
+				spawner1.Draw(this);
 				foreach (WordBullet bullet in bullets) {
 					bullet.Draw(this);
 				}
@@ -77,6 +86,19 @@ namespace PixelVision8.Player
 			else {
 				transition.Draw(this);
 			}
+		}
+
+		public void AddBullet(WordBullet bullet) {
+			bullets.Add(bullet);
+		}
+
+		public void RemoveBullet(WordBullet bullet) {
+			bulletsToRemove.Add(bullet);
+		}
+
+		public void PlayerHitBullet(WordBullet bullet) {
+			loveMeter.gainLove(2);
+			RemoveBullet(bullet);
 		}
 	}
 }
