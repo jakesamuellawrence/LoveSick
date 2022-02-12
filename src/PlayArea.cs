@@ -7,13 +7,12 @@ public class PlayArea {
     public static int WIDTH = 100;
     public static int HEIGHT = 100;
 
-    public static void Setup(GameChip gameChip) {
+    public static void Setup(CustomGameChip gameChip) {
         Point display = gameChip.Display();
         centre = new Vector2D(display.X/2, display.Y/2);
     }
 
-    public static void Draw(GameChip gameChip) {
-        Console.WriteLine(DrawMode.SpriteBelow);
+    public static void Draw(CustomGameChip gameChip) {
         gameChip.DrawRect((int)centre.x - WIDTH/2, (int)centre.y - HEIGHT/2, WIDTH, HEIGHT, 5, DrawMode.SpriteBelow);
     }
 
