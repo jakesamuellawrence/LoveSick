@@ -14,6 +14,7 @@ namespace PixelVision8.Player
 
 		PlayerCharacter player;
 		LoveMeter loveMeter;
+		HPMeter hpMeter;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -25,6 +26,8 @@ namespace PixelVision8.Player
 			player = new PlayerCharacter(this);
 			PlayArea.Setup(this);
 			loveMeter = new LoveMeter();
+			hpMeter = new HPMeter();
+
 		}
 		
 		/*
@@ -51,6 +54,7 @@ namespace PixelVision8.Player
 			player.Draw(this);
 			PlayArea.Draw(this);
 			loveMeter.Draw(this);
+			hpMeter.Draw(this);
 		}
 	}
 }
