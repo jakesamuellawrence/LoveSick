@@ -8,7 +8,7 @@ public class PlayerCharacter {
     private int HEIGHT = 8; 
 
     private Vector2D position;
-    private float movespeed = 0.15f; // speed in pixels / milisecond (probably?)
+    private float movespeed = 0.1f; // speed in pixels / milisecond (probably?)
 
     public PlayerCharacter(CustomGameChip gameChip) {
         Point display = gameChip.Display();

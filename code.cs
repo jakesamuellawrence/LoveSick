@@ -38,8 +38,8 @@ namespace PixelVision8.Player
 			hpMeter = new HPMeter();
 			bullets = new List<WordBullet>();
 			bulletsToRemove = new List<WordBullet>();
-			spawner1 = new BulletSpawner(new Vector2D(120, 50), "Cute");
-			spawner1.fireAt(this, player.getPosition());
+			spawner1 = new SpreadSpawner(new Vector2D(120, 50), "Cute", 5);
+			spawner1.Fire(this);
 			// bullets.Add(new WordBullet(new Vector2D(120, 120), new Vector2D(0.15f, 0.15f)));
 		}
 		

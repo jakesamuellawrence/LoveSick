@@ -35,4 +35,11 @@ public class PlayArea {
         }
     }
 
+    public static Vector2D GenerateRandomPoint() {
+        Random rand = new Random();
+        int xPos = rand.Next(WIDTH);
+        int yPos = rand.Next(HEIGHT);
+        return new Vector2D(centre.x - WIDTH/2 + xPos, centre.y - HEIGHT/2 + yPos);
+    }
+
 }

@@ -1,17 +1,19 @@
 using PixelVision8.Player;
 using System;
 
-public class BulletSpawner {
+public abstract class BulletSpawner {
 
     private Vector2D position;
     private String spawnerText;
 
-    private float DEFAULT_BULLET_SPEED = 0.2f;
+    private float DEFAULT_BULLET_SPEED = 0.05f;
 
-    public BulletSpawner(Vector2D position, String spawnerText) {
+    public BulletSpawner(Vector2D position, string spawnerText) {
         this.position = position;
         this.spawnerText = spawnerText;
     }
+
+    public abstract void Fire(CustomGameChip gameChip);
 
     public void fireAt(CustomGameChip gameChip, Vector2D target) {
         Vector2D direction = (target - this.position).normalized();
