@@ -9,7 +9,7 @@ public class PlayerCharacter {
 
     public PlayerCharacter(GameChip gameChip) {
         Point display = gameChip.Display();
-        position = new Vector2D(display.X/2, display.Y/2);
+        position = new Vector2D(8, 8);
     }
 
     public void Update(GameChip gameChip, int timeDelta) {
