@@ -24,12 +24,18 @@ public class Vector2D {
 
     public void normalize() {
         float mag = this.magnitude();
+        if (mag == 0) {
+            mag = 1;
+        }
         this.x = x / mag;
         this.y = y / mag;
     }
 
     public Vector2D normalized() {
         float mag = this.magnitude();
+        if (mag == 0) {
+            mag = 1;
+        }
         return new Vector2D(this.x / mag, this.y / mag);
     }
 }

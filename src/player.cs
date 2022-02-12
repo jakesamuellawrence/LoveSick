@@ -1,4 +1,5 @@
 using PixelVision8.Player;
+using System;
 
 public class PlayerCharacter {
 
@@ -13,8 +14,8 @@ public class PlayerCharacter {
     }
 
     public void Update(GameChip gameChip, int timeDelta) {
-        // Vector2D inputVec = getNormalizedMovementVector(gameChip);
-        // position = position.add(inputVec.times(movespeed * timeDelta));
+        Vector2D inputVec = getNormalizedMovementVector(gameChip);
+        position = position.add(inputVec.times(movespeed * timeDelta));
     }
 
     private Vector2D getNormalizedMovementVector(GameChip gameChip) {
