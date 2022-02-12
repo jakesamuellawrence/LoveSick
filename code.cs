@@ -31,7 +31,7 @@ namespace PixelVision8.Player
 			loveMeter = new LoveMeter();
 			hpMeter = new HPMeter();
 			bullets = new List<WordBullet>();
-			bullets.Add(new WordBullet(this, new Vector2D(32, 32), new Vector2D(1, 1)));
+			bullets.Add(new WordBullet(this, new Vector2D(120, 120), new Vector2D(1, 1)));
 		}
 		
 		/*
@@ -44,7 +44,9 @@ namespace PixelVision8.Player
 		{
 
 			player.Update(this, timeDelta);
-
+			foreach (WordBullet bullet in bullets) {
+				bullet.Update(this);
+			}
 		}
 
 		/* 

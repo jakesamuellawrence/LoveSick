@@ -14,6 +14,7 @@ public class WordBullet {
     }
 
     public void Update(CustomGameChip gameChip) {
+        position = position.add(velocity);
     }
 
     public void Draw(CustomGameChip gameChip) {
