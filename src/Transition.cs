@@ -173,7 +173,7 @@ public class Transition {
         else if (gameChip.currentDate == 5) {
             if (gameChip.dayPhase == 0) {
                 titleText += "Entree (1/2)";
-                string message = "Today, YOU are the entree";
+                string message = "Today, YOU are the entree.";
                 DrawTitle(gameChip, titleText);
                 DrawLines(gameChip, message, initY : initY + withPictureYOffset);
                 gameChip.DrawMetaSprite("day5", display.X/2-64, 16);
@@ -194,7 +194,7 @@ public class Transition {
                 string message = "";
                 if (gameChip.getHP() <= 0) {
                     titleText += "Game Over";
-                    message = "You call out for help...\n \n But nobody came";
+                    message = "You call out for help...\n \n But nobody came.";
                 }
                 else if (gameChip.isLoveLess) {
                     titleText += "The End";
