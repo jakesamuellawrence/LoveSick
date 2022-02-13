@@ -10,15 +10,19 @@ public class HPMeter {
 
     private const int positionX = 64;
     private const int positionY = 24;
-    private const int width = 80;
+    private const int width = 100;
     private const int height = 8;
     private const int frameColorIndex = 15;
     private const int fillColorIndex = 9;
 
     public int hpValue = width;
 
-    public void loseHP(int value) {
+    public void loseHP(CustomGameChip gameChip, int value) {
         hpValue -= value;
+        if (hpValue < 0) {
+            hpValue = 0;
+            gameChip.DayDone();
+        }
     }
 
     public void Draw(CustomGameChip gameChip) {

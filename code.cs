@@ -23,6 +23,7 @@ namespace PixelVision8.Player
 		public List<WordBullet> bullets;
 		public List<WordBullet> bulletsToRemove;
 		public LoveMeter loveMeter;
+		public float lovePerBullet = 1f;
 		public HPMeter hpMeter;
 
 		/*
@@ -122,13 +123,28 @@ namespace PixelVision8.Player
 		}
 
 		public void PlayerHitBullet(WordBullet bullet) {
-			loveMeter.gainLove(1);
+			loveMeter.gainLove(lovePerBullet);
+			UpdateLovePerBullet();
 			if (currentDate == 5) {
-				hpMeter.loseHP(5);
+				hpMeter.loseHP(this, 5);
 			}
 			RemoveBullet(bullet);
 		}
-		
+
+		public void UpdateLovePerBullet() {
+			if (loveMeter.loveValue >= 20) {
+				lovePerBullet = 0.8f;
+			} else if (loveMeter.loveValue >= 40) {
+				lovePerBullet = 0.6f;
+			} else if (loveMeter.loveValue >= 60) {
+				lovePerBullet = 0.4f;
+			} else if (loveMeter.loveValue >= 80) {
+				lovePerBullet = 0.2f;
+			} else if (loveMeter.loveValue >= 100) {
+				lovePerBullet = 0.1f;
+			}
+		}
+
 		public void DayDone() {
 			foreach (BulletSpawner spawner in spawners) {
 				RemoveBulletSpawner(spawner);

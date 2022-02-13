@@ -51,6 +51,7 @@ public class GameManager {
 
     public static void UpdateParameters(CustomGameChip gameChip) {
         if (gameChip.currentDate == 2) {
+            // gameChip.lovePerBullet= 0.4f;
             minTimeToFire = 400;
             maxTimeToFire = 2250;
             minScatterNum = 3;
@@ -63,6 +64,7 @@ public class GameManager {
                 "Scrumptious"
             };
         } else if (gameChip.currentDate == 3) {
+            // gameChip.lovePerBullet = 0.3f;
             minTimeToFire = 300;
             maxTimeToFire = 2000;
             minScatterNum = 3;
@@ -74,6 +76,7 @@ public class GameManager {
                 "Plump"
             };
         } else if (gameChip.currentDate == 4) {
+            // gameChip.lovePerBullet = 0.2f;
             minTimeToFire = 200;
             maxTimeToFire = 1750;
             minScatterNum = 4;
@@ -85,7 +88,8 @@ public class GameManager {
                 "Mine"
             };
         } else if (gameChip.currentDate == 5) {
-            TIME_PER_DAY = gameChip.loveMeter.loveValue * TIME_PER_LOVE_POINT;
+            // gameChip.lovePerBullet = 0.1f;
+            TIME_PER_DAY = (int)gameChip.loveMeter.loveValue * TIME_PER_LOVE_POINT;
             minTimeToFire = 100;
             maxTimeToFire = 1500;
             minScatterNum = 4;
