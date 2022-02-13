@@ -45,6 +45,8 @@ namespace PixelVision8.Player
 
 			GameManager.Init(this);
 			// bullets.Add(new WordBullet(new Vector2D(120, 120), new Vector2D(0.15f, 0.15f)));
+
+			PlaySong(1, true);
 		}
 		
 		/*
@@ -160,7 +162,15 @@ namespace PixelVision8.Player
 		}
 
 		public void NextDay() {
+			StopSong();
 			currentDate++;
+			if (currentDate < 4) {
+				PlaySong(1, true);
+			}
+			else {
+				PlaySong(0, true);
+			}
+			
 			GameManager.Init(this);
 		}
 
