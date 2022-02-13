@@ -5,7 +5,6 @@ public class LoveMeter {
 
     private const int textPositionX = 8;
 
-
     private const int positionX = 64;
     private const int positionY = 8;
     private const int width = 100;
@@ -13,7 +12,7 @@ public class LoveMeter {
     private const int frameColorIndex = 15;
     private const int fillColorIndex = 10;
 
-    public float loveValue = 60;
+    public float loveValue = 0;
 
     public void gainLove(float amount){
         loveValue += amount;

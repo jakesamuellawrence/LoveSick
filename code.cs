@@ -17,7 +17,7 @@ namespace PixelVision8.Player
 		public PlayerCharacter player;
 		public Transition transition;
 		public int currentDate = 1;
-		public int dayPhase = 0;
+		public int dayPhase = -1;
 		public List<BulletSpawner> spawners;
 		public List<BulletSpawner> spawnersToRemove;
 		public List<WordBullet> bullets;
@@ -164,7 +164,7 @@ namespace PixelVision8.Player
 
 		public void NextDay() {
 			currentDate++;
-			if (currentDate == 4) {
+			if (currentDate == 5) {
 				StopSong();
 				PlaySong(0, true);
 			}
