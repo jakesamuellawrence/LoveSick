@@ -73,7 +73,7 @@ public class Transition {
                 string message = "He's having pizza, and you get a steak. He asks if you want to share half-and-half.";
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY + withPictureYOffset);
-                gameChip.DrawMetaSprite("day1", display.X/2-64, 16);
+                gameChip.DrawMetaSprite("day2", display.X/2-64, 16);
             }
             else if (gameChip.dayPhase == 1) {
                 titleText += "Entree (2/2)";
@@ -100,7 +100,7 @@ public class Transition {
                 string message = "He's having a burger, rare, and you have a plate of chips.";
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY + withPictureYOffset);
-                gameChip.DrawMetaSprite("day1", display.X/2-64, 16);
+                gameChip.DrawMetaSprite("day3", display.X/2-64, 16);
             }
             else if (gameChip.dayPhase == 1) {
                 titleText += "Entree (2/2)";
@@ -128,7 +128,7 @@ public class Transition {
                 string message = "You sit across from your first date in a long time.";
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY + withPictureYOffset);
-                gameChip.DrawMetaSprite("day1", display.X/2-64, 16);
+                gameChip.DrawMetaSprite("day4", display.X/2-64, 16);
             }
             else if (gameChip.dayPhase == 1) {
                 titleText += "Entree (2/2)";
@@ -155,7 +155,7 @@ public class Transition {
                 string message = "You want to leave, but he convinces you to stay. Isn't it kind of nice to feel wanted for once?";
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY + withPictureYOffset);
-                gameChip.DrawMetaSprite("day1", display.X/2-64, 16);
+                gameChip.DrawMetaSprite("day5", display.X/2-64, 16);
             }
             else if (gameChip.dayPhase == 1) {
                 titleText += "Entree (2/2)";
