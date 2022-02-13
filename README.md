@@ -5,3 +5,6 @@ You're going on your first date for a long time. He seems really nice, and you'r
 
 ## Contributors
  * Jake Lawrence - Gameplay Programming, Design, Writing
+ * Zoltan Kiss - Narrative Programming, Music, Design, Writing
+ * Mahnoor Qureshi - Gameplay Programming, Art, Design, Writing
+ * Elliot Cruickshank - Art, Design, Writing
