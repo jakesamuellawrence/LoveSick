@@ -188,7 +188,7 @@ public class Transition {
             drawContinueText = false;
         }
         if (drawContinueText) {
-            gameChip.DrawText("Press the A button to continue.", 16, display.Y-16, DrawMode.Sprite, "large", 15, -1);
+            gameChip.DrawText("Press the X button to continue.", 16, display.Y-16, DrawMode.Sprite, "large", 15, -1);
         }
     }
 }   
