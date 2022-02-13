@@ -13,6 +13,6 @@ public class SpreadSpawner : BulletSpawner {
             Vector2D target = PlayArea.GenerateRandomPoint();
             FireAt(gameChip, target);
         }
-        gameChip.PlaySound(7);
+        gameChip.PlaySound(7,3);
     }
 }
