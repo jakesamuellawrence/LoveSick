@@ -44,22 +44,34 @@ public class PlayArea {
 
     public static Vector2D GenerateRandomSpawnerPoint() {
         Random rand= new Random();
-        int xOffset = rand.Next(10, 25);
-        int yOffset = rand.Next(10, 25);
+        int maxRangeX = 35;
+        int minDistX = 35;
 
-        Vector2D point = new Vector2D(0, 0);
+        int maxRangeY = 25;
+        int minDistY = 25;
+
+        float xPos;
+        float yPos;
+
         if (rand.Next(0, 2) == 0) {
-            point.x = centre.x - WIDTH/2 - xOffset;
+            xPos = rand.Next((int)centre.x - WIDTH/2 - maxRangeX, (int)centre.x + WIDTH/2 + maxRangeX);
+            int yOffset = rand.Next(minDistY, maxRangeY);
+            if (rand.Next(0, 2) == 0) {
+                yPos = centre.y - HEIGHT/2 - yOffset;
+            } else {
+                yPos = centre.y + HEIGHT/2 + yOffset;
+            }
         } else {
-            point.x = centre.x + WIDTH/2 + xOffset;
+            yPos= rand.Next((int)centre.y - HEIGHT/2 - maxRangeY, (int)centre.y + HEIGHT/2 + maxRangeY);
+            int xOffset = rand.Next(minDistX, maxRangeX);
+            if (rand.Next(0, 2) == 0) {
+                xPos = centre.x - WIDTH/2 - xOffset;
+            } else {
+                xPos = centre.x + WIDTH/2 + xOffset;
+            }
         }
 
-        if (rand.Next(0, 2) == 0) {
-            point.y = centre.y - HEIGHT/2 - yOffset;
-        } else {
-            point.y = centre.y + HEIGHT/2 + yOffset;
-        }
-        return point;
+        return new Vector2D(xPos, yPos);
     }
 
 }

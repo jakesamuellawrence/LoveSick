@@ -15,18 +15,15 @@ namespace PixelVision8.Player
 	{
 
 		public PlayerCharacter player;
-		Transition transition;
+		public Transition transition;
 		public int currentDate = 1;
 		public int dayPhase = 0;
-		List<BulletSpawner> spawners;
-		List<BulletSpawner> spawnersToRemove;
-		List<WordBullet> bullets;
-		List<WordBullet> bulletsToRemove;
-		LoveMeter loveMeter;
-		HPMeter hpMeter;
-
-		int PLAY_MAX_TIME = 60000;
-		int currTime = 0;
+		public List<BulletSpawner> spawners;
+		public List<BulletSpawner> spawnersToRemove;
+		public List<WordBullet> bullets;
+		public List<WordBullet> bulletsToRemove;
+		public LoveMeter loveMeter;
+		public HPMeter hpMeter;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -44,8 +41,8 @@ namespace PixelVision8.Player
 			bulletsToRemove = new List<WordBullet>();
 			spawners = new List<BulletSpawner>();
 			spawnersToRemove = new List<BulletSpawner>();
-			BulletSpawner spawner1 = new SpreadSpawner(new Vector2D(120, 50), "Cute", 5);
-			AddBulletSpawner(spawner1);
+
+			GameManager.Init(this);
 			// bullets.Add(new WordBullet(new Vector2D(120, 120), new Vector2D(0.15f, 0.15f)));
 		}
 		
@@ -126,8 +123,26 @@ namespace PixelVision8.Player
 		}
 
 		public void PlayerHitBullet(WordBullet bullet) {
-			loveMeter.gainLove(2);
+			loveMeter.gainLove(1);
+			if (currentDate == 5) {
+				hpMeter.loseHP(5);
+			}
 			RemoveBullet(bullet);
+		}
+
+		public void DayDone() {
+			foreach (BulletSpawner spawner in spawners) {
+				RemoveBulletSpawner(spawner);
+			}
+			foreach (WordBullet bullet in bullets) {
+				RemoveBullet(bullet);
+			}
+			dayPhase += 1;
+		}
+
+		public void NextDay() {
+			currentDate++;
+			GameManager.Init(this);
 		}
 	}
 }
