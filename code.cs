@@ -25,6 +25,7 @@ namespace PixelVision8.Player
 		public LoveMeter loveMeter;
 		public float lovePerBullet = 1f;
 		public HPMeter hpMeter;
+		public bool isLoveLess = false;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -172,6 +173,9 @@ namespace PixelVision8.Player
 			}
 			
 			GameManager.Init(this);
+			if (loveMeter.loveValue <= 10f) {
+				isLoveLess = true;
+			}
 		}
 
 		public int getHP() {
