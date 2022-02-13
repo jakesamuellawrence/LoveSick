@@ -16,7 +16,7 @@ namespace PixelVision8.Player
 
 		public PlayerCharacter player;
 		public Transition transition;
-		public int currentDate = 1;
+		public int currentDate = 5;
 		public int dayPhase = 0;
 		public List<BulletSpawner> spawners;
 		public List<BulletSpawner> spawnersToRemove;
@@ -25,6 +25,7 @@ namespace PixelVision8.Player
 		public LoveMeter loveMeter;
 		public float lovePerBullet = 1f;
 		public HPMeter hpMeter;
+		public bool isLoveLess = false;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -158,6 +159,9 @@ namespace PixelVision8.Player
 		public void NextDay() {
 			currentDate++;
 			GameManager.Init(this);
+			if (loveMeter.loveValue <= 10f) {
+				isLoveLess = true;
+			}
 		}
 
 		public int getHP() {
