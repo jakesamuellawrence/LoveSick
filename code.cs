@@ -16,7 +16,7 @@ namespace PixelVision8.Player
 
 		public PlayerCharacter player;
 		public Transition transition;
-		public int currentDate = 5;
+		public int currentDate = 1;
 		public int dayPhase = 0;
 		public List<BulletSpawner> spawners;
 		public List<BulletSpawner> spawnersToRemove;
