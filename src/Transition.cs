@@ -170,13 +170,17 @@ public class Transition {
                 DrawLines(gameChip, message, initY : initY);
             }
             else if (gameChip.dayPhase == 4) {
-                titleText += "The End";
                 string message = "";
                 if (gameChip.getHP() <= 0) {
-                    message = "Love is hard to find in a radioactive wasteland. I guess your search won't go on any longer.";
+                    titleText += "Game Over";
+                    message = "You call out for help...\n \n But nobody came";
                 }
-                else {
-                    message = "Love is hard to find in a radioactive wasteland. Looks like your search will have to continue.";
+                else if (gameChip.isLoveLess) {
+                    titleText += "The End";
+                    message = "Your barely collected any love at all, didn't you? You successfully shut yourself from feeling anything at all. You win?";
+                } else {
+                    titleText += "Survival";
+                    message = "You've survived another day. You sigh. Time to start the search for love all over again...";
                 }
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY);

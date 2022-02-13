@@ -13,7 +13,7 @@ public class LoveMeter {
     private const int frameColorIndex = 15;
     private const int fillColorIndex = 10;
 
-    public float loveValue = 0;
+    public float loveValue = 60;
 
     public void gainLove(float amount){
         loveValue += amount;

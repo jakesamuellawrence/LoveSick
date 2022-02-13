@@ -25,6 +25,7 @@ namespace PixelVision8.Player
 		public LoveMeter loveMeter;
 		public float lovePerBullet = 1f;
 		public HPMeter hpMeter;
+		public bool isLoveLess = false;
 
 		/*
 			The Init() method is part of the game's lifecycle and called a game
@@ -45,6 +46,8 @@ namespace PixelVision8.Player
 
 			GameManager.Init(this);
 			// bullets.Add(new WordBullet(new Vector2D(120, 120), new Vector2D(0.15f, 0.15f)));
+
+			PlaySong(1, true);
 		}
 		
 		/*
@@ -127,6 +130,10 @@ namespace PixelVision8.Player
 			UpdateLovePerBullet();
 			if (currentDate == 5) {
 				hpMeter.loseHP(this, 5);
+				PlaySound(5, 1);
+			}
+			else {
+				PlaySound(6, 1);
 			}
 			RemoveBullet(bullet);
 		}
@@ -157,7 +164,14 @@ namespace PixelVision8.Player
 
 		public void NextDay() {
 			currentDate++;
+			if (currentDate == 4) {
+				StopSong();
+				PlaySong(0, true);
+			}
 			GameManager.Init(this);
+			if (loveMeter.loveValue <= 10f) {
+				isLoveLess = true;
+			}
 		}
 
 		public int getHP() {
