@@ -127,6 +127,10 @@ namespace PixelVision8.Player
 			UpdateLovePerBullet();
 			if (currentDate == 5) {
 				hpMeter.loseHP(this, 5);
+				PlaySound(5, 1);
+			}
+			else {
+				PlaySound(6, 1);
 			}
 			RemoveBullet(bullet);
 		}
