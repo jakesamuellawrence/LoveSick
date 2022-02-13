@@ -125,14 +125,14 @@ public class Transition {
             //@TODO: Base desciptions off the image we have. Current descriptions are placeholders.
             if (gameChip.dayPhase == 0) {
                 titleText += "Entree (1/2)";
-                string message = "Spaghetti, meatballs, a glass of wine. You sit across from your first date in a long time.";
+                string message = "You sit across from your first date in a long time.";
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY + withPictureYOffset);
                 gameChip.DrawMetaSprite("day1", display.X/2-64, 16);
             }
             else if (gameChip.dayPhase == 1) {
                 titleText += "Entree (2/2)";
-                string message = "He has messy brown hair and a boyish grin that seems to stretch ear-to-ear.";
+                string message = "He has untidy brown hair and a demonic grin that stretches ear-to-ear.";
                 gameChip.DrawText(titleText, display.X/4, 4, DrawMode.Sprite, "large", 15, -2);
                 DrawLines(gameChip, message, initY : initY);
             }
