@@ -5,6 +5,9 @@ You're going on your first date for a long time. He seems really nice, and you'r
 
 ## Contributors
 Mahnoor Qureshi, Jake Lawrence - Gameplay programming
+
 Zoltan Kiss - Narrative Programming
+
 Elliot Cruickshank, Mahnoor Qureshi - Art
+
 Design and Writing - Mahnoor Qureshi, Jake Lawrence, Zoltan Kiss, Elliot Cruickshank
