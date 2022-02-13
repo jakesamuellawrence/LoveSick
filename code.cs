@@ -163,15 +163,11 @@ namespace PixelVision8.Player
 		}
 
 		public void NextDay() {
-			StopSong();
 			currentDate++;
-			if (currentDate < 4) {
-				PlaySong(1, true);
-			}
-			else {
+			if (currentDate == 4) {
+				StopSong();
 				PlaySong(0, true);
 			}
-			
 			GameManager.Init(this);
 			if (loveMeter.loveValue <= 10f) {
 				isLoveLess = true;
