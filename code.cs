@@ -54,9 +54,8 @@ namespace PixelVision8.Player
 		*/
 		public override void Update(int timeDelta)
 		{
-			if (dayPhase == 1) {
+			if (dayPhase == 3) {
 				GameManager.Update(this, timeDelta);
-
 				player.Update(this, timeDelta);
 
 				foreach (WordBullet bullet in bullets) {
@@ -89,7 +88,7 @@ namespace PixelVision8.Player
 		public override void Draw()
 		{
 			Clear();
-			if (dayPhase == 1) {
+			if (dayPhase == 3) {
 				PlayArea.Draw(this);
 				player.Draw(this);
 				foreach (WordBullet bullet in bullets) {
@@ -129,7 +128,7 @@ namespace PixelVision8.Player
 			}
 			RemoveBullet(bullet);
 		}
-
+		
 		public void DayDone() {
 			foreach (BulletSpawner spawner in spawners) {
 				RemoveBulletSpawner(spawner);
@@ -143,6 +142,10 @@ namespace PixelVision8.Player
 		public void NextDay() {
 			currentDate++;
 			GameManager.Init(this);
+		}
+
+		public int getHP() {
+			return hpMeter.hpValue;
 		}
 	}
 }
