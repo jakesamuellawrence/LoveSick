@@ -1,4 +1,4 @@
-![LoveSick](https://github.com/jakesamuellawrence/LoveSick/blob/master/Sprites/logo.png)
+![LoveSick](Sprites/logo.png)
 
 
 Game made with Pixel Vision 8 for DYHTG 2022
